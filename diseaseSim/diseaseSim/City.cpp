@@ -4,7 +4,7 @@ using namespace std;
 
 void City::_move()
 {
-	++day;
+	mv_time();
 	int affe, hide, hosp, cure, dead;
 	for (auto person : people)
 	{
@@ -24,35 +24,37 @@ void City::_move()
 	}
 }
 
+void City::mv_time()
+{
+	day++;
+	if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
+	else
+	{
+		date.year++;
+		date.day1++;
+		if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
+	}
+}
+
 City::City(int _citizens, int _hosCap, double _outgoingRate, double _affectPossibility, double _initAffectRate, int _averageHidePeroid, int _dayToHospital, double _deathRate, double _cureRate)
 {
 	citizens = _citizens, hosCap = _hosCap, outgoingRate = _outgoingRate, \
 		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate, \
 		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
 		deathRate = _deathRate, curePossibility = _cureRate;
-	deadcount = 0;
+	deadCount = 0;
 	for (int i = 0; i < citizens, i++)
 	{
 		Person* pper = new(Person);
 		people.push_back(pper);
 	}
+}
+
+
 
 int day_of_month[13]={0,31,29,31,30,31,30,31,31,30,31,30,31};
-void City::move()
-{
-	mv_time();
-}
-void City::mv_time()//在move里面调用这个就行，先day++了，所以day初始化到0
-{
-    day++;
-    if(day<=11) date.year=2019,date.month=12,date.day1=20+day;
-    else
-    {
-        date.year++
-        date.day1++;
-        if(date.day1>day_of_month[date.month])date.day1=1,date.month++;
-    }
-}
+
+
 City::Person::Person()
 {
 	isAffected = isHiden = isInHosp = isCured = isDead = false;
