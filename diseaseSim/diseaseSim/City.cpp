@@ -2,23 +2,24 @@
 
 using namespace std;
 
-void City::_move()
+bool City::_move()
 {
 	mv_time();
-	int affe, hide, hosp, cure, dead;
+	int affe=0, hide=0, hosp=0, cure=0, dead=0;
 	for (auto &person : people)
 	{
-		person._move(day);
+		person->_move(day,citizens,affected,hiden,cured,inHosp,hosCap,deadCount,\
+		outgoingRate,affectPossibility,curePossibility,dayToHospital,deathRate);
 
-		if (person.isDead)
+		if (person->isDead)
 			++dead;
-		if (person.isInHosp)
+		if (person->isInHosp)
 			++hosp;
-		if (person.isHiden)
+		if (person->isHiden)
 			++hide;
-		if (person.isCured)
+		if (person->isCured)
 			++cure;
-		if (person.isAffected)
+		if (person->isAffected)
 			++affe;
 	}
 	affected = affe;
@@ -28,27 +29,41 @@ void City::_move()
 	deadCount = dead;
 
 	show();
-
+	return affected > 0;
 }
 
 void City::getin()
 {
+	if (_kbhit())
+	{
+		char s = _getch();
+		if (s == 'g')
+		{
+			system("cls");
+			string s;
+			cin >> s;
+		}
+	}
 }
 
 void City::show()
 {
+	cout << "affected:" << affected;
+	cout << "IN Hospital" << inHosp;
+	cout << "cured" << cured;
+	cout << "dead" << deadCount << endl;
 }
 
 void City::mv_time()
 {
 	day++;
-	if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
-	else
-	{
-		date.year++;
-		date.day1++;
-		if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
-	}
+//	if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
+//	else
+//	{
+//		date.year++;
+//		date.day1++;
+//		if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
+//	}
 }
 
 City::City(int _citizens, int _hosCap, double _outgoingRate,\
@@ -63,8 +78,8 @@ City::City(int _citizens, int _hosCap, double _outgoingRate,\
 	deadCount = 0;
 	for (int i = 0; i < citizens; i++)
 	{
-		Person* pper = new(Person);
-		people.push_back(*pper);
+		Person* pper = new Person(initAffectRate,averageHidePeroid);
+		people.push_back(pper);
 	}
 }
 
@@ -73,26 +88,31 @@ City::City(int _citizens, int _hosCap, double _outgoingRate,\
 int day_of_month[13]={0,31,29,31,30,31,30,31,31,30,31,30,31};
 
 
-City::Person::Person()
+City::Person::Person(double& initAffectRate, int& averageHidePeroid)
 {
+	static std::default_random_engine e;
 	isAffected = isHiden = isInHosp = isCured = isDead = false;
 	theDayAffected = showDay = -1;
 	static normal_distribution<double> n(averageHidePeroid, 5);
 	hidePerioid = lround(n(e));
-	if (double(e() % 1000) / 1000.0 < City::initAffectRate)
+	if (double(e() % 1000) / 1000.0 < initAffectRate)
 		isAffected = isHiden = true, theDayAffected = 0, \
 		showDay = theDayAffected + hidePerioid;
 
 
 }
 
-void City::Person::_move(int day)
+void City::Person::_move(int day, int& citizens, int& affected, int& hiden, int& cured, \
+	int& hosCap, int& inHosp, int& deadcount, double& outgoingRate, \
+	double& affectPossibility, double& curePossibility, int& dayToHospital, \
+	double& deathRate)
 {
+	static std::default_random_engine e;
 	if (!isAffected&&!isCured)
 	{
-		if (double((e() % 1000)) / 1000.0 < City::outgoingRate)
-			if (double(e() % 1000) / 1000.0 * City::affected * City::outgoingRate\
-				< City::affectPossibility)
+		if (double((e() % 1000)) / 1000.0 < outgoingRate)
+			if (double(e() % 1000) / 1000.0 * affected * outgoingRate\
+				< affectPossibility)
 				isAffected = isHiden = true, theDayAffected = day, \
 				showDay = theDayAffected + hidePerioid;
 	}
@@ -103,14 +123,14 @@ void City::Person::_move(int day)
 	}
 	else if (isAffected && !isHiden)
 	{
-		if (day == showDay + City::dayToHospital && City::inHosp < City::hosCap)
+		if (day == showDay + dayToHospital && inHosp < hosCap)
 			isInHosp = true;
 	}
 	else if (isInHosp)
 	{
-		if (double(e() % 1000) / 1000.0 < City::deathRate)
+		if (double(e() % 1000) / 1000.0 < deathRate)
 			isDead = true;
-		else if (double(e() % 1000) / 1000.0 < City::curePossibility)
+		else if (double(e() % 1000) / 1000.0 < curePossibility)
 			isCured = true, isHiden = isAffected = isInHosp = false;
 	}
 }

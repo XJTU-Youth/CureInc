@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include <random>
+#include <conio.h>
+#include <iostream>
 class City
 {
 private:
@@ -15,43 +17,48 @@ private:
 		int theDayAffected;
 		int hidePerioid;
 		int showDay;
-		void _move(int day);
-		static std::default_random_engine e;
+		void _move(int day, int& citizens, int& affected, int& hiden, int& cured,\
+		int& hosCap, int& inHosp, int& deadcount, double& outgoingRate,\
+		double& affectPossibility, double& curePossibility, int& dayToHospital,\
+		double& deathRate);
+		
 
-		Person();
+		Person(double& initAffectRate, int& averageHidePeroid);
 	};
-	static int citizens;
-	static int affected;
-	static int hiden;
-	static int cured;
-	static int hosCap;
-	static int inHosp;
-	static int deadCount;
+	int citizens;
+	int affected;
+	int hiden;
+	int cured;
+	int hosCap;
+	int inHosp;
+	int deadCount;
 
-	std::vector<Person> people;
+	std::vector<Person*> people;
 
-	static double outgoingRate;
+	double outgoingRate;
 
-	static double affectPossibility;
+	double affectPossibility;
 
-	static double curePossibility;
+	double curePossibility;
 
-	static double initAffectRate;
+	double initAffectRate;
 
-	static int averageHidePeroid;
+	int averageHidePeroid;
 
-	static int dayToHospital;
+	int dayToHospital;
 
-	static double deathRate;
+	double deathRate;
 
 	int day = 0;
-
-	void _move();
+public:
+	bool _move();
 
 	void getin();
 	void show();
 	void mv_time();
-public:
+
+
+
 	City(int _citizens, int _hosCap, double _outgoingRate, \
 		double _affectPossibility, double _initAffectRate, \
 		int _averageHidePeroid, int _dayToHospital, \
