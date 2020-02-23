@@ -9,7 +9,7 @@ void City::move()
 
 City::Person::Person()
 {
-	isAffected = isHiden = isInHosp = isCured = false;
+	isAffected = isHiden = isInHosp = isCured = isDead = false;
 	theDayAffected = showDay = -1;
 	static normal_distribution<double> n(averageHidePeroid, 5);
 	hidePerioid = lround(n(e));
@@ -29,5 +29,22 @@ void City::Person::move(int day)
 				< City::affectPossibility)
 				isAffected = isHiden = true, theDayAffected = day, \
 				showDay = theDayAffected + hidePerioid;
+	}
+	else if (isAffected && isHiden)
+	{
+		if (day == showDay)
+			isHiden = false;
+	}
+	else if (isAffected && !isHiden)
+	{
+		if (day == showDay + City::dayToHospital && City::inHosp < City::hosCap)
+			isInHosp = true;
+	}
+	else if (isInHosp)
+	{
+		if (double(e() % 1000) / 1000.0 < City::deathRate)
+			isDead = true;
+		else if (double(e() % 1000) / 1000.0 < City::curePossibility)
+			isCured = true, isHiden = isAffected = isInHosp = false;
 	}
 }

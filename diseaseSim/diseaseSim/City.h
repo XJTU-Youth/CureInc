@@ -11,6 +11,7 @@ private:
 		bool isHiden;
 		bool isInHosp;
 		bool isCured;
+		bool isDead;
 		int theDayAffected;
 		int hidePerioid;
 		int showDay;
