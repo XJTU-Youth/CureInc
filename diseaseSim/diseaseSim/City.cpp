@@ -2,8 +2,40 @@
 
 using namespace std;
 
-void City::move()
+void City::_move()
 {
+	++day;
+	int affe, hide, hosp, cure, dead;
+	for (auto person : people)
+	{
+		person->_move(day);
+
+		if (person->isDead)
+			++dead;
+		if (person->isInHosp)
+			++hosp;
+		if (person->isHiden)
+			++hide;
+		if (person->isCured)
+			++cure;
+		if (person->isAffected)
+			++affe;
+		
+	}
+}
+
+City::City(int _citizens, int _hosCap, double _outgoingRate, double _affectPossibility, double _initAffectRate, int _averageHidePeroid, int _dayToHospital, double _deathRate, double _cureRate)
+{
+	citizens = _citizens, hosCap = _hosCap, outgoingRate = _outgoingRate, \
+		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate, \
+		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
+		deathRate = _deathRate, curePossibility = _cureRate;
+	deadcount = 0;
+	for (int i = 0; i < citizens, i++)
+	{
+		Person* pper = new(Person);
+		people.push_back(pper);
+	}
 
 }
 
@@ -20,7 +52,7 @@ City::Person::Person()
 
 }
 
-void City::Person::move(int day)
+void City::Person::_move(int day)
 {
 	if (!isAffected&&!isCured)
 	{
