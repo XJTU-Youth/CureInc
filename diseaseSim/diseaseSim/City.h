@@ -28,7 +28,7 @@ private:
 	static int inHosp;
 	static int deadCount;
 
-	std::vector<Person*> people;
+	std::vector<Person> people;
 
 	static double outgoingRate;
 

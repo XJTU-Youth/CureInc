@@ -6,19 +6,19 @@ void City::_move()
 {
 	mv_time();
 	int affe, hide, hosp, cure, dead;
-	for (auto person : people)
+	for (auto &person : people)
 	{
-		person->_move(day);
+		person._move(day);
 
-		if (person->isDead)
+		if (person.isDead)
 			++dead;
-		if (person->isInHosp)
+		if (person.isInHosp)
 			++hosp;
-		if (person->isHiden)
+		if (person.isHiden)
 			++hide;
-		if (person->isCured)
+		if (person.isCured)
 			++cure;
-		if (person->isAffected)
+		if (person.isAffected)
 			++affe;
 	}
 	affected = affe;
@@ -51,17 +51,20 @@ void City::mv_time()
 	}
 }
 
-City::City(int _citizens, int _hosCap, double _outgoingRate, double _affectPossibility, double _initAffectRate, int _averageHidePeroid, int _dayToHospital, double _deathRate, double _cureRate)
+City::City(int _citizens, int _hosCap, double _outgoingRate,\
+	double _affectPossibility, double _initAffectRate,\
+	int _averageHidePeroid, int _dayToHospital, double _deathRate,\
+	double _cureRate)
 {
 	citizens = _citizens, hosCap = _hosCap, outgoingRate = _outgoingRate, \
-		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate, \
+		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate,\
 		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
 		deathRate = _deathRate, curePossibility = _cureRate;
 	deadCount = 0;
 	for (int i = 0; i < citizens; i++)
 	{
 		Person* pper = new(Person);
-		people.push_back(pper);
+		people.push_back(*pper);
 	}
 }
 
