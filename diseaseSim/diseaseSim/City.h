@@ -22,6 +22,7 @@ private:
 	};
 	static int citizens;
 	static int affected;
+	static int hiden;
 	static int cured;
 	static int hosCap;
 	static int inHosp;

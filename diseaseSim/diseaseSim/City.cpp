@@ -20,8 +20,15 @@ void City::_move()
 			++cure;
 		if (person->isAffected)
 			++affe;
-		
 	}
+	affected = affe;
+	hiden = hide;
+	inHosp = hosp;
+	cured = cure;
+	deadCount = dead;
+
+	show();
+
 }
 
 void City::mv_time()
@@ -43,7 +50,7 @@ City::City(int _citizens, int _hosCap, double _outgoingRate, double _affectPossi
 		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
 		deathRate = _deathRate, curePossibility = _cureRate;
 	deadCount = 0;
-	for (int i = 0; i < citizens, i++)
+	for (int i = 0; i < citizens; i++)
 	{
 		Person* pper = new(Person);
 		people.push_back(pper);
