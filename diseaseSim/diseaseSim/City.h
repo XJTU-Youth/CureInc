@@ -48,7 +48,7 @@ private:
 
 	void _move();
 
-
+	void getin();
 	void show();
 	void mv_time();
 public:

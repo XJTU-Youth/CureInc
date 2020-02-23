@@ -31,6 +31,14 @@ void City::_move()
 
 }
 
+void City::getin()
+{
+}
+
+void City::show()
+{
+}
+
 void City::mv_time()
 {
 	day++;
