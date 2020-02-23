@@ -46,11 +46,18 @@ private:
 	int day = 0;
 
 	void move();
-
+        void show();
+	void mv_time();
 public:
 	City(int _citizens, int _hosCap, double _outgoingRate, \
 		double _affectPossibility, double _initAffectRate, \
 		int _averageHidePeroid, int _dayToHospital, \
 		double _deathRate, double _cureRate);
+    struct date
+    {
+        int year;
+        int month;
+        int day1;
+    };
 };
 
