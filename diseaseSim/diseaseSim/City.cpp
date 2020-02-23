@@ -12,7 +12,7 @@ void City::mv_time()//在move里面调用这个就行，先day++了，所以day�
     if(day<=11) date.year=2019,date.month=12,date.day1=20+day;
     else
     {
-        date.year++
+        date.year=2020;
         date.day1++;
         if(date.day1>day_of_month[date.month])date.day1=1,date.month++;
     }
