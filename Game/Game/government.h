@@ -2,7 +2,7 @@
 #include "area.h"
  class government
  {
- public:
+public:
     
 private:
      area Area;
