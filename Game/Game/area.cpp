@@ -10,7 +10,8 @@ void area::processAction()
 			switch (action_.first)
 			{
 			case buildHospital:
-				//Do something;
+				hospital.hosava += 100;
+				hospital.hostot += 100;
 				break;
 			case reduceMovement:
 				//Do something;
@@ -22,4 +23,21 @@ void area::processAction()
 	}
 }
 
+void area::mv_time()
+{
+	day++;
+		if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
+		else
+		{
+			date.year++;
+			date.day1++;
+			if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
+		}
+}
+void area::_move()
+{
+	mv_time();
+	spread(affected, );
+	processAction();
 
+}
