@@ -4,7 +4,8 @@ using namespace std;
 
 int main()
 {
-	City Wuhan(10000, 200, 0.0, 0.03, 0.002, 1, 3, 0.5, 0.5);
-	while (Wuhan._move());
+	City Wuhan(10000000, 2000, 0.05, 0.000001, 0.002, 14, 3, 0.5, 0.5);
+	while (Wuhan._move())
+		_getch();
 	return 0;
 }

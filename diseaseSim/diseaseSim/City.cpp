@@ -48,10 +48,11 @@ void City::getin()
 
 void City::show()
 {
-	cout << "affected:" << affected;
-	cout << "IN Hospital" << inHosp;
-	cout << "cured" << cured;
-	cout << "dead" << deadCount << endl;
+	cout << "Day:" << day;
+	cout << " affected:" << affected;
+	cout << " IN Hospital" << inHosp;
+	cout << " cured" << cured;
+	cout << " dead" << deadCount << endl;
 }
 
 void City::mv_time()
@@ -75,7 +76,7 @@ City::City(int _citizens, int _hosCap, double _outgoingRate,\
 		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate,\
 		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
 		deathRate = _deathRate, curePossibility = _cureRate;
-	deadCount = 0;
+	deadCount = affected=cured=hiden=inHosp=0;
 	for (int i = 0; i < citizens; i++)
 	{
 		Person* pper = new Person(initAffectRate,averageHidePeroid);
@@ -85,7 +86,7 @@ City::City(int _citizens, int _hosCap, double _outgoingRate,\
 
 
 
-int day_of_month[13]={0,31,29,31,30,31,30,31,31,30,31,30,31};
+
 
 
 City::Person::Person(double& initAffectRate, int& averageHidePeroid)
@@ -118,12 +119,12 @@ void City::Person::_move(int day, int& citizens, int& affected, int& hiden, int&
 	}
 	else if (isAffected && isHiden)
 	{
-		if (day == showDay)
+		if (day >= showDay)
 			isHiden = false;
 	}
 	else if (isAffected && !isHiden)
 	{
-		if (day == showDay + dayToHospital && inHosp < hosCap)
+		if (day >= showDay + dayToHospital && inHosp < hosCap)
 			isInHosp = true;
 	}
 	else if (isInHosp)

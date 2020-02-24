@@ -33,6 +33,8 @@ private:
 	int inHosp;
 	int deadCount;
 
+	const int day_of_month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+
 	std::vector<Person*> people;
 
 	double outgoingRate;

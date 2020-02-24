@@ -349,3 +349,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+diseaseSim/.vs/diseaseSim/v16/.suo
+diseaseSim/.vs/diseaseSim/v16/.suo
+*.db
+*.ipch
