@@ -4,6 +4,30 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+
+const std::string HubeiMap = R"(
+              ,,,---                                                      
+       ,,,'```      \,,,_                                                 
+     |                   .                                                
+      `.                   |  ,,                                          
+         ,                ,       \  _. ____..                            
+             |         |               |      |                           
+         /          '                 |       \ ,......../``  _|          
+          ',         |                ,           \      |     | ,- ,     
+             ,'        `' .   ,' .`        '.   ,.-        ,         \-- ,
+               '.         `                    `          /|          -'` 
+                  \     ,-  |                  /    ,.'`   ',       |     
+                   ' |       |   .........,,-`      |        `        /    
+        /   \ '''    /        \/-                 /    | '_.         \    
+       /           /             ` \            |      |  |.            | 
+  .--          /     .....-      ,' |     _.  -    ``,'/`        |\     \ 
+ |                | /        `` `     \ /   \   /\        `,     | `'... `
+   |          ,.`  '             \._,`       ``   |           `',         
+  '        /                                     |     ,--'''             
+    `` \  |                                      \   /                    
+         `                                        ```                     )";
+
+
 class area
 {
 private:
@@ -18,12 +42,12 @@ private:
     unsigned int distract;
     unsigned int dead;
 
-    struct hospital
+    struct
     {
         unsigned int hostot;//总床位
         unsigned int doctot;//总医生
         unsigned int hosava;//可用床位
-    };
+    } hospital;
 
     inline void spread(int& object, double& rate) { object *= 1 + rate; }
     void processAction();
