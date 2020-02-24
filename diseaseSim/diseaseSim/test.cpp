@@ -17,7 +17,7 @@ double random_unint(unsigned int min, unsigned int max, unsigned int seed = 0)
 	return u(e);
 }
 
-int main()
+/*int main()
 {
 	int i = 10;
 	for (int j = 0; j < 20; j++)
@@ -26,4 +26,4 @@ int main()
 		cout << i << endl;
 	}
 	return 0;
-}
+}*/
