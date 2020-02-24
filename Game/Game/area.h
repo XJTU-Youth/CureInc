@@ -26,6 +26,7 @@ private:
     };
 
     inline void spread(int& object, double& rate) { object *= 1 + rate; }
+    void processAction();
 
 
 public:
