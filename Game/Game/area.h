@@ -39,13 +39,13 @@ private:
     }
     unsigned int population;
     unsigned int affected;
-    unsigned int distract;
+//  unsigned int distract;
     unsigned int dead;
 
     struct
     {
         unsigned int hostot;//总床位
-        unsigned int doctot;//总医生
+     //   unsigned int doctot;//总医生
         unsigned int hosava;//可用床位
     } hospital;
 
@@ -60,5 +60,12 @@ private:
 public:
     inline void addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); }
     inline void showAction() { for (auto& action_ : actions)std::cout << "Action:" << int(action_.first) << " Time:" << action_.second << " days.\n"; }
+    inline void showOverallStatus() {
+        std::cout << HubeiMap << std::endl << "Total Population: " << population << "\nTotal nCov affected: " << affected << "\nTotal hospital capacity: "\
+            << hospital.hostot << "\nAvaliable hospital room: " << hospital.hosava << "\nDead patients count: " << dead << std::endl;
+    }
+
+    inline area(unsigned int _population, unsigned int _init_affected, unsigned int init_hosCap) :population(_population), affected(_init_affected)
+    { hospital.hosava = hospital.hostot = init_hosCap; }
 };
 
