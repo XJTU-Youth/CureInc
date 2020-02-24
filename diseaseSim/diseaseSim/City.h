@@ -23,7 +23,7 @@ private:
 		double& deathRate);
 		
 
-		Person(double& initAffectRate, int& averageHidePeroid);
+		Person(bool initAffect, int& averageHidePeroid);
 	};
 	int citizens;
 	int affected;
@@ -43,7 +43,7 @@ private:
 
 	double curePossibility;
 
-	double initAffectRate;
+	int initAffectCount;
 
 	int averageHidePeroid;
 
@@ -62,7 +62,7 @@ public:
 
 
 	City(int _citizens, int _hosCap, double _outgoingRate, \
-		double _affectPossibility, double _initAffectRate, \
+		double _affectPossibility, int _initAffectCount, \
 		int _averageHidePeroid, int _dayToHospital, \
 		double _deathRate, double _cureRate);
 	struct _date

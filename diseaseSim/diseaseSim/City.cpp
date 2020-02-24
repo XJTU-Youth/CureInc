@@ -68,18 +68,18 @@ void City::mv_time()
 }
 
 City::City(int _citizens, int _hosCap, double _outgoingRate,\
-	double _affectPossibility, double _initAffectRate,\
+	double _affectPossibility, int _initAffectCount,\
 	int _averageHidePeroid, int _dayToHospital, double _deathRate,\
 	double _cureRate)
 {
 	citizens = _citizens, hosCap = _hosCap, outgoingRate = _outgoingRate, \
-		affectPossibility = _affectPossibility, initAffectRate = _initAffectRate,\
+		affectPossibility = _affectPossibility, initAffectCount = _initAffectCount,\
 		averageHidePeroid = _averageHidePeroid, dayToHospital = _dayToHospital, \
 		deathRate = _deathRate, curePossibility = _cureRate;
 	deadCount = affected=cured=hiden=inHosp=0;
 	for (int i = 0; i < citizens; i++)
 	{
-		Person* pper = new Person(initAffectRate,averageHidePeroid);
+		Person* pper = new Person(i<_initAffectCount,averageHidePeroid);
 		people.push_back(pper);
 	}
 }
@@ -89,14 +89,14 @@ City::City(int _citizens, int _hosCap, double _outgoingRate,\
 
 
 
-City::Person::Person(double& initAffectRate, int& averageHidePeroid)
+City::Person::Person(bool initAffect, int& averageHidePeroid)
 {
 	static std::default_random_engine e;
 	isAffected = isHiden = isInHosp = isCured = isDead = false;
 	theDayAffected = showDay = -1;
 	static normal_distribution<double> n(averageHidePeroid, 5);
 	hidePerioid = lround(n(e));
-	if (double(e() % 1000) / 1000.0 < initAffectRate)
+	if (initAffect)
 		isAffected = isHiden = true, theDayAffected = 0, \
 		showDay = theDayAffected + hidePerioid;
 
@@ -108,11 +108,11 @@ void City::Person::_move(int day, int& citizens, int& affected, int& hiden, int&
 	double& affectPossibility, double& curePossibility, int& dayToHospital, \
 	double& deathRate)
 {
-	static std::default_random_engine e;
+//	static std::default_random_engine e;
 	if (!isAffected&&!isCured)
 	{
-		if (double((e() % 1000)) / 1000.0 < outgoingRate)
-			if (double(e() % 1000) / 1000.0 * affected * outgoingRate\
+		if (double((rand() % 1000)) / 1000.0 < outgoingRate)
+			if (double(rand() % 1000) / 1000.0 * affected * outgoingRate\
 				< affectPossibility)
 				isAffected = isHiden = true, theDayAffected = day, \
 				showDay = theDayAffected + hidePerioid;
@@ -129,9 +129,9 @@ void City::Person::_move(int day, int& citizens, int& affected, int& hiden, int&
 	}
 	else if (isInHosp)
 	{
-		if (double(e() % 1000) / 1000.0 < deathRate)
+		if (double(rand() % 1000) / 1000.0 < deathRate)
 			isDead = true;
-		else if (double(e() % 1000) / 1000.0 < curePossibility)
+		else if (double(rand() % 1000) / 1000.0 < curePossibility)
 			isCured = true, isHiden = isAffected = isInHosp = false;
 	}
 }
