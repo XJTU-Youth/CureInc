@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="area.cpp" />
     <ClCompile Include="government.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="area.h" />
