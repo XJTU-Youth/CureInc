@@ -4,6 +4,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+#include <Windows.h>
 
 const std::string HubeiMap = R"(
               ,,,---                                                      
@@ -37,10 +38,18 @@ private:
         static std::uniform_real_distribution<double> u(0, 1);
         return u(e);
     }
+
+    double affeRate;
+
     unsigned int population;
     unsigned int affected;
 //  unsigned int distract;
     unsigned int dead;
+    unsigned int todayDied;
+    unsigned int healthy;
+    unsigned int cured;
+
+    unsigned int dayliSpend;
 
     struct
     {
@@ -49,7 +58,7 @@ private:
         unsigned int hosava;//可用床位
     } hospital;
 
-    inline void spread(int& object, double& rate) { object *= 1 + rate; }
+    inline void spread(unsigned int& object, const double& rate) { object *= 1 + rate; }
     void processAction();
 
 
@@ -58,14 +67,32 @@ public:
 private:
     std::vector<std::pair<action, int16_t>> actions;//消息队列，存放pair，pair内部是操作名称和还需时间。
 public:
-    inline void addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); }
+
+    int day;
+
+    inline unsigned long long addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); return _action == buildHospital ? 2000000 : 0; }
     inline void showAction() { for (auto& action_ : actions)std::cout << "Action:" << int(action_.first) << " Time:" << action_.second << " days.\n"; }
     inline void showOverallStatus() {
+        system("cls");
         std::cout << HubeiMap << std::endl << "Total Population: " << population << "\nTotal nCov affected: " << affected << "\nTotal hospital capacity: "\
             << hospital.hostot << "\nAvaliable hospital room: " << hospital.hosava << "\nDead patients count: " << dead << std::endl;
     }
-
+    void mv_time();
+    const int day_of_month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
     inline area(unsigned int _population, unsigned int _init_affected, unsigned int init_hosCap) :population(_population), affected(_init_affected)
     { hospital.hosava = hospital.hostot = init_hosCap; }
+    struct _date
+    {
+        int year;
+        int month;
+        int day1;
+    } date;
+    void _move();
+    inline unsigned int getTodayDead() { return todayDied; }
+    inline unsigned int getHosPat() { return hospital.hostot - hospital.hosava; }
+    inline unsigned int getAffected() { return affected; }
+    inline unsigned int getCured() { return cured; }
+    inline unsigned int getHealthy() { return healthy; }
+    inline unsigned int getTodaySpend() { return dayliSpend; }
 };
 
