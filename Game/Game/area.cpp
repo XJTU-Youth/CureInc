@@ -14,7 +14,7 @@ void area::processAction()
 				hospital.hostot += 100;
 				break;
 			case reduceMovement:
-				//Do something;
+				affeRate *= 0.9;
 				break;
 				//expandable
 			}
@@ -37,7 +37,7 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
-	spread(affected, );
+	spread(affected, affeRate);
 	processAction();
 
 }
