@@ -1,9 +1,10 @@
 #pragma once
 #include <random>
+#include <ctime>
 class area
 {
 private:
-    inline double random_float_between_0_1(unsigned int seed = 0)
+    inline double random_float_between_0_1(unsigned int seed = time(nullptr))
     {
         static std::default_random_engine e(seed);
         static std::uniform_real_distribution<double> u(0, 1);
