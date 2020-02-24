@@ -1,8 +1,15 @@
 #pragma once
 #include "area.h"
-class government
-{
+ class government
+ {
+ public:
+    
 private:
-	area Area;
-};
-
+     area Area;
+    struct hospital
+    {
+        unsigned int hostot;//总床位
+        unsigned int doctot;//总医生
+        unsigned int hosava;//可用床位
+    };
+ };
