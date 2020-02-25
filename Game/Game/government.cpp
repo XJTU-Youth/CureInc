@@ -1,6 +1,10 @@
 #include "government.h"
-std::string name_save;
-const std::string gov="gov.sav";
+using std::cout;
+using std::cin;
+using std::string;
+string name_save;
+inline string& get_name_save(){return name_save;}
+const string gov="gov.sav";
 void government::co_bu()
 {
     area::action buildHosp = area::action::buildHospital;
@@ -53,17 +57,17 @@ void government::ch_day()
         money+=day_in;
         money-=Area.getTodaySpend();
 }
-void government::go_pe_give(int& gi_rate)//¾è¿î£¬Õþ¸®¶îÍâ²¹Ìù²¿·Ö,girate±íÊ¾¾è¿îÂÊ£¬Ã¿¾èÒ»´Î¶¼»á½µµÍ
+void government::go_pe_give(int& gi_rate)//ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,girateï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Ã¿ï¿½ï¿½Ò»ï¿½Î¶ï¿½ï¿½á½µï¿½ï¿½
 {
     int ex_ge;//extra get
     bool from;
-    //´ÓÄÄÀïÀ´µÄ£¬Õþ¸®=1£¬ÃñÖÚ=0
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=0
     if (from = false)
     {
         static std::default_random_engine e(time(nullptr));
         static std::uniform_real_distribution<double> u(0, 1);
         if (u(e) > 0.9)
-            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!Ã»ÏëºÃ*/0;//ÎÞÁ¼ºìÊ®×Ö»á
+            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!Ã»ï¿½ï¿½ï¿½*/0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê®ï¿½Ö»ï¿½
     }
 }
 
@@ -71,5 +75,5 @@ bool government::_move()
 {
     Area._move();
     Area.showOverallStatus();
-    //TODO: ¼ÓÈë²Ëµ¥ÏÔÊ¾£¬Íê³É²Ù×÷µÄ»ñÈ¡ÒÔ¼°Íê³É¡£
+    //TODO: ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡ï¿½Ô¼ï¿½ï¿½ï¿½É¡ï¿½
 }
