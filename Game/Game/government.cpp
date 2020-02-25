@@ -13,8 +13,9 @@ void government::new_game()
 	std::cout << "Please input the name of the save without space\n";
 a1: std::cin >> name_save;
 	FILE* dat;
-	dat = fopen((name_save + gov).c_str(), "r");
-	if (dat)
+	errno_t err;
+	err = fopen_s(&dat,(name_save + gov).c_str(), "r");
+	if (!err)
 	{
 		std::cerr << "Archive already exists, overwrite or not?answer with letter y/n\n";
 		char s;
@@ -24,6 +25,7 @@ a1: std::cin >> name_save;
 	fclose(dat);
 	money = money_de;
 	day_in = day_in_de;
+	assert(Area.saveToYaml(name_save);
 }
 void government::read_save()
 {
@@ -31,22 +33,24 @@ void government::read_save()
 	cout << "input the name of the save";
 	std::cin >> name_save;
 	FILE* dat;
-	dat = fopen((name_save + gov).c_str(), "r");
-	if (!dat)
+	errno_t err=fopen_s(&dat,(name_save + gov).c_str(), "r");
+	if (err)
 	{
 		std::cerr << "The program can't find the save";
-		assert(0);
+		menu();
 	}
 	fread(&money, sizeof(unsigned long long), 1, dat);
 	fread(&day_in, sizeof(long long), 1, dat);
 	fread(&gi_rate, sizeof(int), 1, dat);
 	/**/
 	fclose(dat);
+	assert(Area.loadFromYaml(name_save);
 }
 void government::save_exit()
 {
 	FILE* dat;
-	dat = fopen((name_save + gov).c_str(), "w");
+	errno_t err;
+	err = fopen_s(&dat,(name_save + gov).c_str(), "w");
 	/**/
 	fclose(dat);
 	menu();
