@@ -4,11 +4,7 @@
  {
 public:
     void ch_day()
-{
-        Area._move();
-        money+=day_in;
-        money-=Area.getTodaySpend();
-}
+
     void co_bu();
 
     void go_pe_give(int& gi_rate);//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低

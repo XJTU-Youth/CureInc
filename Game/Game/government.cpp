@@ -1,14 +1,18 @@
 #include "government.h"
-
+int gi_rate;//捐款相关率
 void government::co_bu()
 {
-    
     area::action buildHosp = area::action::buildHospital;
     money -= Area.addAction(buildHosp, 7);
     day_in += 50000;
 }
-
-void government::go_pe_give(int& gi_rate)//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
+void government::ch_day()
+{
+        Area._move();
+        money+=day_in;
+        money-=Area.getTodaySpend();
+}
+void government::go_pe_give()//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
 {
     int ex_ge;//extra get
     bool from;
