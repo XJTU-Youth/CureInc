@@ -1,4 +1,5 @@
 #include "government.h"
+#define fopen fopen_s
 const string gov = "gov.sav";
 void government::co_bu()
 {
@@ -14,7 +15,7 @@ void government::new_game()
 a1: std::cin >> name_save;
 	FILE* dat;
 	dat = fopen((name_save + gov).c_str(), "r");
-	if (dat)
+	if (!dat)
 	{
 		std::cerr << "Archive already exists, overwrite or not?answer with letter y/n\n";
 		char s;
@@ -24,6 +25,7 @@ a1: std::cin >> name_save;
 	fclose(dat);
 	money = money_de;
 	day_in = day_in_de;
+	assert(Area.saveToYaml(name_save);
 }
 void government::read_save()
 {
@@ -32,7 +34,7 @@ void government::read_save()
 	std::cin >> name_save;
 	FILE* dat;
 	dat = fopen((name_save + gov).c_str(), "r");
-	if (!dat)
+	if (dat)
 	{
 		std::cerr << "The program can't find the save";
 		assert(0);
@@ -42,6 +44,7 @@ void government::read_save()
 	fread(&gi_rate, sizeof(int), 1, dat);
 	/**/
 	fclose(dat);
+	assert(Area.loadFromYaml(name_save);
 }
 void government::save_exit()
 {
