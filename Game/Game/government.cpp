@@ -1,5 +1,9 @@
 #include "government.h"
+using std::cout;
+using std::cin;
+using std::string;
 string name_save;
+inline string& get_name_save(){return name_save;}
 const string gov="gov.sav";
 void government::co_bu()
 {
