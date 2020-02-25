@@ -58,7 +58,7 @@ private:
         unsigned int hosava;//ø…”√¥≤Œª
     } hospital;
 
-    inline void spread(unsigned int& object, const double& rate) { object *= 1 + rate; }
+    inline unsigned int spread(const unsigned int& object, const double& rate) { return object * (1 + rate); }
     void processAction();
 
 
