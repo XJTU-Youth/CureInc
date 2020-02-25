@@ -6,7 +6,7 @@ void government::co_bu()
     money -= Area.addAction(buildHosp, 7);
     day_in += 50000;
 }
-string government::get_name_save(){return name_save;}
+//string government::get_name_save(){return name_save;}
 void government::new_game()
 {
     std::cout<<"Please input the name of the save without space\n";

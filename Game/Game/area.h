@@ -81,7 +81,7 @@ public:
     const int day_of_month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
     inline area(unsigned int _population=0, unsigned int _init_affected=0, unsigned int init_hosCap=0) :population(_population), affected(_init_affected)
     {
-        hospital.hosava = hospital.hostot = init_hosCap; affeRate = 0.5;
+        hospital.hospat = 0, hospital.hostot = init_hosCap; affeRate = 0.5;
     }
 
     inline void reset(unsigned int _population, unsigned int _init_affected, unsigned int init_hosCap)
