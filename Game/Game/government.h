@@ -1,9 +1,14 @@
 #pragma once
 #include "area.h"
+#include<assert.h>
+#include<stdio.h>
  class government
  {
 public:
-    void ch_day()
+    void new_game();
+    void read_save();
+    void save_exit();
+    void ch_day();
 
     void co_bu();
 
@@ -13,8 +18,14 @@ public:
 
     bool _move();
 
+
+
 private:
      area Area;
      unsigned long long money;
-     unsigned long long day_in;
+     long long day_in;
+     int gi_rate;//捐款相关率
+     const unsigned long long money_de;
+     const long long day_in_de;
+     const int gi_rate_de;
  };
