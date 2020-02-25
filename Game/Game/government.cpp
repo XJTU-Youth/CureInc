@@ -17,12 +17,12 @@ a1: std::cin >> name_save;
 	err = fopen_s(&dat, (name_save + gov).c_str(), "r");
 	if (!err)
 	{
+	    fclose(dat);
 		std::cerr << "Archive already exists, overwrite or not?answer with letter y/n\n";
 		char s;
 		std::cin >> s;
 		if (s != 'y') goto a1;
 	}
-	fclose(dat);
 	money = money_de;
 	day_in = day_in_de;
 	assert(Area.saveToYaml(name_save));
@@ -52,6 +52,7 @@ void government::save_exit()
 	errno_t err;
 	err = fopen_s(&dat, (name_save + gov).c_str(), "w");
 	/**/
+	if(err==0)
 	fclose(dat);
 	menu();
 }
