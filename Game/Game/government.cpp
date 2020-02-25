@@ -14,7 +14,7 @@ void government::new_game()
 a1: std::cin >> name_save;
 	FILE* dat;
 	errno_t err;
-	err = fopen_s(&dat,(name_save + gov).c_str(), "r");
+	err = fopen_s(&dat, (name_save + gov).c_str(), "r");
 	if (!err)
 	{
 		std::cerr << "Archive already exists, overwrite or not?answer with letter y/n\n";
@@ -25,7 +25,7 @@ a1: std::cin >> name_save;
 	fclose(dat);
 	money = money_de;
 	day_in = day_in_de;
-	assert(Area.saveToYaml(name_save);
+	assert(Area.saveToYaml(name_save));
 }
 void government::read_save()
 {
@@ -33,7 +33,7 @@ void government::read_save()
 	cout << "input the name of the save";
 	std::cin >> name_save;
 	FILE* dat;
-	errno_t err=fopen_s(&dat,(name_save + gov).c_str(), "r");
+	errno_t err = fopen_s(&dat, (name_save + gov).c_str(), "r");
 	if (err)
 	{
 		std::cerr << "The program can't find the save";
@@ -44,13 +44,13 @@ void government::read_save()
 	fread(&gi_rate, sizeof(int), 1, dat);
 	/**/
 	fclose(dat);
-	assert(Area.loadFromYaml(name_save);
+	assert(Area.loadFromYaml(name_save));
 }
 void government::save_exit()
 {
 	FILE* dat;
 	errno_t err;
-	err = fopen_s(&dat,(name_save + gov).c_str(), "w");
+	err = fopen_s(&dat, (name_save + gov).c_str(), "w");
 	/**/
 	fclose(dat);
 	menu();
@@ -86,7 +86,7 @@ void government::ch_day()
 }
 void government::go_pe_give(int& gi_rate)//���������ⲹ������,girate��ʾ����ʣ�ÿ��һ�ζ��ή��
 {
-	int ex_ge;//extra get
+	int ex_ge = 0;//extra get
 	bool from;
 	//���������ģ�����=1������=0
 	if (from = false)
@@ -94,7 +94,7 @@ void government::go_pe_give(int& gi_rate)//���������ⲹ��
 		static std::default_random_engine e(time(nullptr));
 		static std::uniform_real_distribution<double> u(0, 1);
 		if (u(e) > 0.9)
-			ex_ge /= 1.5, day_in /= 1.2, gi_rate +=/*!!!!û���*/0;//������ʮ�ֻ�
+			ex_ge /= 1.5, day_in /= 1.2, gi_rate += 0;
 	}
 }
 
@@ -103,4 +103,5 @@ bool government::_move()
 	Area._move();
 	Area.showOverallStatus();
 	//TODO: Complete codes for gameplay
+	return true;
 }

@@ -2,7 +2,8 @@
 
 int main()
 {
-	area Area(5000000, 20, 1000);
-	Area.saveToYaml("test.yaml");
+	area Area;
+	Area.loadFromYaml("test.yaml");
+	Area.saveToYaml("test2.yaml");
 	return 0;
 }
