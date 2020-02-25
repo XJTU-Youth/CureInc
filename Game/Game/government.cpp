@@ -9,6 +9,7 @@ void government::co_bu()
 //string government::get_name_save(){return name_save;}
 void government::new_game()
 {
+    system("cls");
 	std::cout << "Please input the name of the save without space\n";
 a1: std::cin >> name_save;
 	FILE* dat;
@@ -26,6 +27,8 @@ a1: std::cin >> name_save;
 }
 void government::read_save()
 {
+    system("cls")
+    cout<<"input the name of the save";
 	std::cin >> name_save;
 	FILE* dat;
 	dat = fopen((name_save + gov).c_str(), "r");
@@ -46,6 +49,27 @@ void government::save_exit()
 	dat = fopen((name_save + gov).c_str(), "w");
 	/**/
 	fclose(dat);
+	menu();
+}
+void government::menu()
+{
+    system("cls")
+     printf("Welcome to the game CureInc\nchoose a/b/c to continue\na:start a new game\nb:load game\nc:exit\n");
+    char s;
+  a2:cin>>s;
+    switch(s)
+    {
+        case 'a'||'A':
+            new_game();break;
+        case 'b'||'B':
+            read_save();break;
+        case 'c'||'C':
+            exit(0);
+        default:
+            cout<<"Pay a little attention!!!,input the letter again\n";
+            goto a2;
+
+    }
 }
 void government::ch_day()
 {

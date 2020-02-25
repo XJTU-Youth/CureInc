@@ -12,6 +12,7 @@ public:
 	void read_save();
 	void save_exit();
 	void ch_day();
+	void menu();
 	inline string& get_name_save() { return name_save; }
 	void co_bu();
 
