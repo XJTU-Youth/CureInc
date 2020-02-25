@@ -18,7 +18,7 @@ void area::processAction()
 				break;
 				//expandable
 			}
-			
+
 		}
 	}
 }
@@ -26,18 +26,18 @@ void area::processAction()
 void area::mv_time()
 {
 	day++;
-		if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
-		else
-		{
-			date.year++;
-			date.day1++;
-			if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
-		}
+	if (day <= 11) date.year = 2019, date.month = 12, date.day1 = 20 + day;
+	else
+	{
+		date.year++;
+		date.day1++;
+		if (date.day1 > day_of_month[date.month])date.day1 = 1, date.month++;
+	}
 }
 void area::_move()
 {
 	mv_time();
 	affected = spread(affected - hospital.hostot + hospital.hosava, affeRate);
 	processAction();
-	
+
 }
