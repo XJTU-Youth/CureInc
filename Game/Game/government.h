@@ -29,9 +29,9 @@ private:
 	unsigned long long money;
 	long long day_in;
 	int gi_rate;//捐款相关率
-	const unsigned long long money_de;
-	const long long day_in_de;
-	const int gi_rate_de;
+	const unsigned long long money_de=0;
+	const long long day_in_de=0;
+	const int gi_rate_de=0;
 	string name_save;
 
 };

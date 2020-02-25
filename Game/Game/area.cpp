@@ -39,6 +39,7 @@ void area::_move()
 	mv_time();
 	affected = spread(affected - hospital.hospat, affeRate);
 	processAction();
+	dayliSpend = hospital.hospat * 2000 + hospital.hospat * 5000 + 10000000;
 
 }
 
