@@ -27,7 +27,7 @@ a1: std::cin >> name_save;
 }
 void government::read_save()
 {
-    system("cls")
+    system("cls");
     cout<<"input the name of the save";
 	std::cin >> name_save;
 	FILE* dat;
@@ -53,7 +53,7 @@ void government::save_exit()
 }
 void government::menu()
 {
-    system("cls")
+    system("cls");
      printf("Welcome to the game CureInc\nchoose a/b/c to continue\na:start a new game\nb:load game\nc:exit\n");
     char s;
   a2:cin>>s;
