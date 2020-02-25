@@ -37,7 +37,7 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
-	spread(affected, affeRate);
+	affected = spread(affected - hospital.hostot + hospital.hosava, affeRate);
 	processAction();
-
+	
 }
