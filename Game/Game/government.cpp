@@ -18,7 +18,7 @@ a1: std::cin>>name_save;
         std::cout<<"Archive already exists, overwrite or not?answer with letter y/n\n";
         char s;
         std::cin>>s;
-        if(s=='y') goto a1;
+        if(s!='y') goto a1;
     }
     fclose(dat);
     money=money_de;
