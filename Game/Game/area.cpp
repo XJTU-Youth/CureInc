@@ -58,6 +58,8 @@ bool area::saveToYaml(std::string savName)
 		data["hospital"]["hostot"] = hospital.hostot;
 		data["hospital"]["hospat"] = hospital.hospat;
 		data["day"] = day;
+		fout << data;
+		fout.close();
 		return true;
 	}
 	return false;
@@ -65,5 +67,16 @@ bool area::saveToYaml(std::string savName)
 
 bool area::loadFromYaml(std::string savName)
 {
-	return false;
+	YAML::Node data = YAML::LoadFile(savName);
+	affeRate = data["affeRate"].as<double>;
+	population = data["population"].as<unsigned int>;
+	affected = data["affected"].as<unsigned int>;
+	dead = data["dead"].as<unsigned int>;
+	healthy = data["healthy"].as<unsigned int>;
+	cured = data["cured"].as<unsigned int>;
+	dayliSpend = data["dayliSpend"].as<unsigned int>;
+	hospital.hostot = data["hospital"]["hostot"].as<unsigned int>;
+	hospital.hospat = data["hospital"]["hospat"].as<unsigned int>;
+	day = data["day"].as<int>;
+	return true;
 }
