@@ -55,7 +55,7 @@ private:
     {
         unsigned int hostot;//总床位
      //   unsigned int doctot;//总医生
-        unsigned int hosava;//可用床位
+        unsigned int hospat;//病人数
     } hospital;
 
     inline unsigned int spread(const unsigned int& object, const double& rate) { return object * (1 + rate); }
@@ -97,11 +97,11 @@ public:
         int day1;
     } date;
     void _move();
-    inline unsigned int getTodayDead() { return todayDied; }
-    inline unsigned int getHosPat() { return hospital.hostot - hospital.hosava; }
-    inline unsigned int getAffected() { return affected; }
-    inline unsigned int getCured() { return cured; }
-    inline unsigned int getHealthy() { return healthy; }
-    inline unsigned int getTodaySpend() { return dayliSpend; }
+    inline unsigned int& getTodayDead() { return todayDied; }
+    inline unsigned int& getHosPat() { return hospital.hospat; }
+    inline unsigned int& getAffected() { return affected; }
+    inline unsigned int& getCured() { return cured; }
+    inline unsigned int& getHealthy() { return healthy; }
+    inline unsigned int& getTodaySpend() { return dayliSpend; }
 };
 
