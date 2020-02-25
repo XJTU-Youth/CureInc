@@ -15,7 +15,7 @@ a1: std::cin >> name_save;
 	dat = fopen((name_save + gov).c_str(), "r");
 	if (dat)
 	{
-		std::cout << "Archive already exists, overwrite or not?answer with letter y/n\n";
+		std::cerr << "Archive already exists, overwrite or not?answer with letter y/n\n";
 		char s;
 		std::cin >> s;
 		if (s != 'y') goto a1;
@@ -31,7 +31,7 @@ void government::read_save()
 	dat = fopen((name_save + gov).c_str(), "r");
 	if (!dat)
 	{
-		std::cout << "The program can't find the save";
+		std::cerr << "The program can't find the save";
 		assert(0);
 	}
 	fread(&money, sizeof(unsigned long long), 1, dat);
@@ -40,7 +40,7 @@ void government::read_save()
 	/**/
 	fclose(dat);
 }
-void save_exit()
+void government::save_exit()
 {
 	FILE* dat;
 	dat = fopen((name_save + gov).c_str(), "w");

@@ -10,7 +10,7 @@ void area::processAction()
 			switch (action_.first)
 			{
 			case buildHospital:
-				hospital.hosava += 100;
+				//hospital.hosava += 100;
 				hospital.hostot += 100;
 				break;
 			case reduceMovement:
@@ -37,7 +37,7 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
-	affected = spread(affected - hospital.hostot + hospital.hosava, affeRate);
+	affected = spread(affected - hospital.hospat, affeRate);
 	processAction();
 
 }

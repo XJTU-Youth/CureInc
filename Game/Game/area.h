@@ -75,7 +75,7 @@ public:
 	inline void showOverallStatus() {
 		system("cls");
 		std::cout << HubeiMap << std::endl << "Total Population: " << population << "\nTotal nCov affected: " << affected << "\nTotal hospital capacity: "\
-			<< hospital.hostot << "\nAvaliable hospital room: " << hospital.hosava << "\nDead patients count: " << dead << std::endl;
+			<< hospital.hostot << "\nAvaliable hospital room: " << hospital.hostot - hospital.hospat << "\nDead patients count: " << dead << std::endl;
 	}
 	void mv_time();
 	const int day_of_month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
@@ -86,7 +86,7 @@ public:
 
 	inline void reset(unsigned int _population, unsigned int _init_affected, unsigned int init_hosCap)
 	{
-		hospital.hosava = hospital.hostot = init_hosCap;
+		hospital.hostot = 0, = hospital.hostot = init_hosCap;
 		population = _population;
 		affected = _init_affected;
 	}
