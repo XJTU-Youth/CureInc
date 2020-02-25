@@ -1,6 +1,6 @@
 #include "government.h"
-string name_save;
-const string gov="gov.sav";
+std::string name_save;
+const std::string gov="gov.sav";
 void government::co_bu()
 {
     area::action buildHosp = area::action::buildHospital;
@@ -9,15 +9,15 @@ void government::co_bu()
 }
 void government::new_game()
 {
-    cout<<"Please input the name of the save without space\n";
-a1: cin>>name_save;
+    std::cout<<"Please input the name of the save without space\n";
+a1: std::cin>>name_save;
     FILE * dat;
-    dat=fopen(name_save+gov,"r");
+    dat=fopen((name_save+gov).c_str(),"r");
     if(dat)
     {
-        cout<<"Archive already exists, overwrite or not?answer with letter y/n\n";
+        std::cout<<"Archive already exists, overwrite or not?answer with letter y/n\n";
         char s;
-        cin>>s;
+        std::cin>>s;
         if(s=='y') goto a1;
     }
     fclose(dat);
@@ -26,12 +26,12 @@ a1: cin>>name_save;
 }
 void government::read_save()
 {
-    cin>>name_save;
+    std::cin>>name_save;
     FILE * dat;
-    dat=fopen(name_save+gov,"r");
+    dat=fopen((name_save + gov).c_str(),"r");
     if(!dat)
     {
-        cout<<"The program can't find the save";
+        std::cout<<"The program can't find the save";
         assert(0);
     }
     fread(&money,sizeof(unsigned long long),1,dat);
@@ -43,7 +43,7 @@ void government::read_save()
 void save_exit()
 {
     FILE * dat;
-    dat=fopen(name_save+gov,"w");
+    dat=fopen((name_save + gov).c_str(),"w");
     /**/
     fclose(dat);
 }
@@ -53,17 +53,17 @@ void government::ch_day()
         money+=day_in;
         money-=Area.getTodaySpend();
 }
-void government::go_pe_give()//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
+void government::go_pe_give(int& gi_rate)//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
 {
     int ex_ge;//extra get
     bool from;
     //从哪里来的，政府=1，民众=0
     if (from = false)
     {
-        static std::default_random_engine e(seed);
+        static std::default_random_engine e(time(nullptr));
         static std::uniform_real_distribution<double> u(0, 1);
         if (u(e) > 0.9)
-            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!没想好*/;//无良红十字会
+            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!没想好*/0;//无良红十字会
     }
 }
 
