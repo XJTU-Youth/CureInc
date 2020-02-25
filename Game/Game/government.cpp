@@ -9,15 +9,15 @@ void government::co_bu()
 string government::get_name_save(){return name_save;}
 void government::new_game()
 {
-    cout<<"Please input the name of the save without space\n";
-a1: cin>>name_save;
+    std::cout<<"Please input the name of the save without space\n";
+a1: std::cin>>name_save;
     FILE * dat;
-    dat=fopen(name_save+gov,"r");
+    dat=fopen((name_save+gov).c_str(),"r");
     if(dat)
     {
-        cout<<"Archive already exists, overwrite or not?answer with letter y/n\n";
+        std::cout<<"Archive already exists, overwrite or not?answer with letter y/n\n";
         char s;
-        cin>>s;
+        std::cin>>s;
         if(s=='y') goto a1;
     }
     fclose(dat);
@@ -26,12 +26,12 @@ a1: cin>>name_save;
 }
 void government::read_save()
 {
-    cin>>name_save;
+    std::cin>>name_save;
     FILE * dat;
-    dat=fopen(name_save+gov,"r");
+    dat=fopen((name_save + gov).c_str(),"r");
     if(!dat)
     {
-        cout<<"The program can't find the save";
+        std::cout<<"The program can't find the save";
         assert(0);
     }
     fread(&money,sizeof(unsigned long long),1,dat);
@@ -43,7 +43,7 @@ void government::read_save()
 void save_exit()
 {
     FILE * dat;
-    dat=fopen(name_save+gov,"w");
+    dat=fopen((name_save + gov).c_str(),"w");
     /**/
     fclose(dat);
 }
@@ -53,17 +53,17 @@ void government::ch_day()
         money+=day_in;
         money-=Area.getTodaySpend();
 }
-void government::go_pe_give()//¾è¿î£¬Õþ¸®¶îÍâ²¹Ìù²¿·Ö,girate±íÊ¾¾è¿îÂÊ£¬Ã¿¾èÒ»´Î¶¼»á½µµÍ
+void government::go_pe_give(int& gi_rate)//ï¿½ï¿½î£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â²¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,girateï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½Ê£ï¿½Ã¿ï¿½ï¿½Ò»ï¿½Î¶ï¿½ï¿½á½µï¿½ï¿½
 {
     int ex_ge;//extra get
     bool from;
-    //´ÓÄÄÀïÀ´µÄ£¬Õþ¸®=1£¬ÃñÖÚ=0
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½=1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=0
     if (from = false)
     {
-        static std::default_random_engine e(seed);
+        static std::default_random_engine e(time(nullptr));
         static std::uniform_real_distribution<double> u(0, 1);
         if (u(e) > 0.9)
-            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!Ã»ÏëºÃ*/;//ÎÞÁ¼ºìÊ®×Ö»á
+            ex_ge /= 1.5, day_in /=1.2, gi_rate +=/*!!!!Ã»ï¿½ï¿½ï¿½*/0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê®ï¿½Ö»ï¿½
     }
 }
 
@@ -71,5 +71,5 @@ bool government::_move()
 {
     Area._move();
     Area.showOverallStatus();
-    //TODO: ¼ÓÈë²Ëµ¥ÏÔÊ¾£¬Íê³É²Ù×÷µÄ»ñÈ¡ÒÔ¼°Íê³É¡£
+    //TODO: ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½É²ï¿½ï¿½ï¿½ï¿½Ä»ï¿½È¡ï¿½Ô¼ï¿½ï¿½ï¿½É¡ï¿½
 }
