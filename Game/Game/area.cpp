@@ -45,21 +45,21 @@ void area::_move()
 
 bool area::saveToYaml(std::string savName)
 {
-	std::ofstream fout(savName,std::fstream::trunc);
+	std::ofstream fout(savName);
 	if (fout.is_open())
 	{
-		YAML::Node data;
-		data["affeRate"] = affeRate;
-		data["population"] = population;
-		data["affected"] = affected;
-		data["dead"] = dead;
-		data["healthy"] = healthy;
-		data["cured"] = cured;
-		data["dayliSpend"] = dayliSpend;
-		data["hospital"]["hostot"] = hospital.hostot;
-		data["hospital"]["hospat"] = hospital.hospat;
-		data["day"] = day;
-		fout << data;
+		
+		fout << affeRate << std::endl
+			<< population << std::endl
+			<< affected << std::endl
+			<< dead << std::endl
+			<< healthy << std::endl
+			<< cured << std::endl
+			<< dayliSpend << std::endl
+			<< hospital.hostot << std::endl
+			<< hospital.hospat << std::endl
+			<< day << std::endl;
+		
 		fout.close();
 		return true;
 	}
@@ -68,16 +68,14 @@ bool area::saveToYaml(std::string savName)
 
 bool area::loadFromYaml(std::string savName)
 {
-	YAML::Node data = YAML::LoadFile(savName);
-	affeRate = data["affeRate"].as<double>;
-	population = data["population"].as<unsigned int>;
-	affected = data["affected"].as<unsigned int>;
-	dead = data["dead"].as<unsigned int>;
-	healthy = data["healthy"].as<unsigned int>;
-	cured = data["cured"].as<unsigned int>;
-	dayliSpend = data["dayliSpend"].as<unsigned int>;
-	hospital.hostot = data["hospital"]["hostot"].as<unsigned int>;
-	hospital.hospat = data["hospital"]["hospat"].as<unsigned int>;
-	day = data["day"].as<int>;
-	return true;
+	std::ifstream fin(savName);
+	if (fin.is_open())
+	{
+		fin >> affeRate >> population >> affected
+			>> dead >> healthy >> cured >> dayliSpend
+			>> hospital.hostot >> hospital.hospat
+			>> day;
+		return true;
+	}
+	return false;
 }
