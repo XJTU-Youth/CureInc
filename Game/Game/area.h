@@ -5,6 +5,8 @@
 #include <vector>
 #include <iostream>
 #include <Windows.h>
+#include <fstream>
+#include "yaml-cpp/yaml.h"
 
 const std::string HubeiMap = R"(
               ,,,---                                                      
@@ -86,7 +88,7 @@ public:
 
 	inline void reset(unsigned int _population, unsigned int _init_affected, unsigned int init_hosCap)
 	{
-		hospital.hostot = 0, = hospital.hostot = init_hosCap;
+		hospital.hostot = 0,  hospital.hostot = init_hosCap;
 		population = _population;
 		affected = _init_affected;
 	}
@@ -103,5 +105,9 @@ public:
 	inline unsigned int& getCured() { return cured; }
 	inline unsigned int& getHealthy() { return healthy; }
 	inline unsigned int& getTodaySpend() { return dayliSpend; }
+
+	bool saveToYaml(std::string savName);
+	bool loadFromYaml(std::string savName);
+
 };
 

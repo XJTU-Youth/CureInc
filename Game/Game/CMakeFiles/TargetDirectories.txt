@@ -1,0 +1,15 @@
+C:/Users/12045/Desktop/CMakeFiles/yaml-cpp.dir
+C:/Users/12045/Desktop/CMakeFiles/format.dir
+C:/Users/12045/Desktop/CMakeFiles/INSTALL.dir
+C:/Users/12045/Desktop/CMakeFiles/RUN_TESTS.dir
+C:/Users/12045/Desktop/CMakeFiles/ALL_BUILD.dir
+C:/Users/12045/Desktop/CMakeFiles/ZERO_CHECK.dir
+C:/Users/12045/Desktop/test/CMakeFiles/INSTALL.dir
+C:/Users/12045/Desktop/test/CMakeFiles/RUN_TESTS.dir
+C:/Users/12045/Desktop/test/CMakeFiles/googletest_project.dir
+C:/Users/12045/Desktop/test/CMakeFiles/run-tests.dir
+C:/Users/12045/Desktop/util/CMakeFiles/sandbox.dir
+C:/Users/12045/Desktop/util/CMakeFiles/parse.dir
+C:/Users/12045/Desktop/util/CMakeFiles/read.dir
+C:/Users/12045/Desktop/util/CMakeFiles/INSTALL.dir
+C:/Users/12045/Desktop/util/CMakeFiles/RUN_TESTS.dir

@@ -1,0 +1,13 @@
+# Target labels
+ googletest_project
+# Source files and their labels
+C:/Users/12045/Desktop/test/CMakeFiles/googletest_project
+C:/Users/12045/Desktop/CMakeFiles/356c8f5385be4217d1b080662ede5ada/googletest_project.rule
+C:/Users/12045/Desktop/CMakeFiles/4b262e56e75dad2a2da86948be2e4a9c/googletest_project-complete.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-install.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-mkdir.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-download.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-update.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-patch.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-configure.rule
+C:/Users/12045/Desktop/CMakeFiles/25efc570048b6af7717cb0f71fb21fc7/googletest_project-build.rule

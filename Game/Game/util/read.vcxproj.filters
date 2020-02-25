@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\util\read.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\util\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA017C88-77AE-3030-87C0-9C180855761D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

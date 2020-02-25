@@ -1,0 +1,11 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckCSourceCompiles.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.c.in
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckIncludeFile.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/CheckLibraryExists.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/ExternalProject.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindPackageMessage.cmake
+C:/Program Files/CMake/share/cmake-3.17/Modules/FindThreads.cmake
+C:/Users/12045/Desktop/test/googletest_project-prefix/tmp/googletest_project-cfgcmd.txt.in
+C:/Users/12045/Desktop/yaml-cpp-yaml-cpp-0.6.3/test/CMakeLists.txt

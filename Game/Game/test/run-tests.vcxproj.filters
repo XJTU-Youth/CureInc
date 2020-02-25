@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\emitter_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\encoding_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\error_messages_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\gen_emitter_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\handler_spec_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\handler_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\load_node_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\integration\node_spec_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\node\node_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\ostream_wrapper_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\regex_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\handler_test.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\mock_event_handler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\specexamples.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\test\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{A76F66D8-2DC4-37F5-8E12-BCCB0A0F90B4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BA017C88-77AE-3030-87C0-9C180855761D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

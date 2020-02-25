@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\12045\Desktop\CMakeFiles\a23957c8932bcb0ace370aed39252c4f\format.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\12045\Desktop\yaml-cpp-yaml-cpp-0.6.3\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="C:\Users\12045\Desktop\CMakeFiles\format" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{D07BFBAD-0EEF-3B9F-8F95-D42FD96F7A7D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
