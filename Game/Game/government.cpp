@@ -1,9 +1,4 @@
 #include "government.h"
-using std::cout;
-using std::cin;
-using std::string;
-string name_save;
-inline string& get_name_save(){return name_save;}
 const string gov="gov.sav";
 void government::co_bu()
 {
@@ -11,6 +6,7 @@ void government::co_bu()
     money -= Area.addAction(buildHosp, 7);
     day_in += 50000;
 }
+string government::get_name_save(){return name_save;}
 void government::new_game()
 {
     cout<<"Please input the name of the save without space\n";
