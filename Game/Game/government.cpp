@@ -1,5 +1,6 @@
 #include "government.h"
 const string gov = "gov.sav";
+string name_save;
 void government::co_bu()
 {
 	area::action buildHosp = area::action::buildHospital;
@@ -85,10 +86,9 @@ void government::ch_day()
 	money += day_in;
 	money -= Area.getTodaySpend();
 }
-void government::go_pe_give(int& gi_rate)//���������ⲹ������,girate��ʾ����ʣ�ÿ��һ�ζ��ή��
+void government::go_pe_give(bool from)//���������ⲹ������,girate��ʾ����ʣ�ÿ��һ�ζ��ή��
 {
 	int ex_ge = 0;//extra get
-	bool from;
 	//���������ģ�����=1������=0
 	if (from == false)
 	{
