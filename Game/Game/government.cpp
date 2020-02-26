@@ -27,6 +27,7 @@ a1: std::cin >> name_save;
 	money = money_de;
 	day_in = day_in_de;
 	assert(Area.saveToYaml(name_save));
+	while (_move());
 }
 void government::read_save()
 {
@@ -108,15 +109,17 @@ a:	cout << "Do your choice: H for build Hospital\n\
 R for keep citizens at home\n E for save and exit.\n";
 	char input;
 	cin >> input;
+		area::action b = area::action::buildHospital;
+	area::action r = area::action::reduceMovement;
 	switch (input) {
 	case 'H':
 	case 'h':
-		area::action b = area::action::buildHospital;
+
 		Area.addAction(b, 7);
 		break;
 	case 'R':
 	case 'r':
-		area::action r = area::action::reduceMovement;
+
 		Area.addAction(r, 3);
 		break;
 	case 'E':
