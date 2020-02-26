@@ -30,7 +30,7 @@ a1: std::cin >> name_save;
 void government::read_save()
 {
 	system("cls");
-	cout << "input the name of the save";
+	cout << "input the name of the save\n";
 	std::cin >> name_save;
 	FILE* dat;
 	errno_t err = fopen_s(&dat, (name_save + gov).c_str(), "r");
