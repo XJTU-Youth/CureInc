@@ -32,6 +32,6 @@ private:
 	const unsigned long long money_de=0;
 	const long long day_in_de=0;
 	const int gi_rate_de=0;
-
+    string name_save;
 
 };

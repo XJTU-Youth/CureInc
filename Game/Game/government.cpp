@@ -1,6 +1,6 @@
 #include "government.h"
 const string gov = "gov.sav";
-string name_save;
+
 void government::co_bu()
 {
 	area::action buildHosp = area::action::buildHospital;
