@@ -29,9 +29,11 @@ public:
 	void co_bu();
 
 	void go_pe_give(bool from);//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
+	void movexy(short x,short y);
 
 	inline government(unsigned int _population=0, unsigned int _init_affected=0, unsigned int init_hosCap=0) { Area.reset(_population, _init_affected, init_hosCap); }
 	//    string get_name_save();
 	bool _move();
+	void Start();
 
 };

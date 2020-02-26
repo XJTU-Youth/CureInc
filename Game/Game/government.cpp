@@ -1,6 +1,49 @@
 #include "government.h"
 const string gov = "gov.sav";
+const string aoligei=
+"                 :N@B@@u                                     EP\n"
+"                @Bu.  i:                                     B@\n"
+"               EB         :BJ   .Mu   LFrXB1   7@B@G,        @M   :OuU@B@J     JB@BM,\n"
+"              .Bv         :@2    @S   1@O.    X@   ;B:       BB   ,@@.  .@v   @B,\n"
+"              .@r         :Bu    Bu   Y@     :@Bi7v2@q       @M   :Br    Bu  :Bi\n"
+"               M@         :@7    @u   jB.    :BB:rrr:        @B   ,@i    @L  ,@i\n"
+"               .B@r   ..  .BB   SBk   2@,     SB             @B   :BL    @5   B@:  .\n"
+"                 vMB@B@;   :M@BNvN7   LM.      rO@B@0.       GZ   :Bi    @L    L@B@O.\n";
+void  government::movexy(short x, short y)
+{
+    COORD position={x, y};
+    HANDLE hOut=GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(hOut, position);
+}
+void government::Start()
+{
+    movexy(3,1);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    cout<<aoligei;
+    Sleep(3000);
+    system("cls");
+    movexy(10,5);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+	cout<<"CureInc:the game of the epidemic prevention in HuBei Province";
+	movexy(13,7);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 11);
+	cout<<"Due to coding problem,we can't use Chinese temporarily";
+	movexy(21,9);
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+	cout<<"[Press any button to continue]";
+	while(!_kbhit());
+	char rub=getch();
+	system("cls");
+	movexy(20,6);
+	cout<<"Loading";
+	for(int i=1;i<=6;i++)
+	{
+	Sleep(200);
+	cout<<".";
+	}
+	menu();
 
+}
 void government::co_bu()
 {
 	area::action buildHosp = area::action::buildHospital;
