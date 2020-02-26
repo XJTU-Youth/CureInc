@@ -12,5 +12,8 @@ int main()
 	*/
 	government Gov(1000000, 20, 1000);
 	Gov.menu();
+	Gov._move();
+	Gov._move();
+	Gov.save_exit();
 	return 0;
 }

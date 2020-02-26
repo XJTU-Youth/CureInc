@@ -7,6 +7,18 @@ using std::cin;
 using std::string;
 class government
 {
+
+private:
+	area Area;
+	unsigned long long money;
+	long long day_in;
+	int gi_rate;//捐款相关率
+	const unsigned long long money_de = 0;
+	const long long day_in_de = 0;
+	const int gi_rate_de = 0;
+	string name_save;
+
+
 public:
 	void new_game();
 	void read_save();
@@ -21,17 +33,5 @@ public:
 	inline government(unsigned int _population=0, unsigned int _init_affected=0, unsigned int init_hosCap=0) { Area.reset(_population, _init_affected, init_hosCap); }
 	//    string get_name_save();
 	bool _move();
-
-
-
-private:
-	area Area;
-	unsigned long long money;
-	long long day_in;
-	int gi_rate;//捐款相关率
-	const unsigned long long money_de=0;
-	const long long day_in_de=0;
-	const int gi_rate_de=0;
-    string name_save;
 
 };
