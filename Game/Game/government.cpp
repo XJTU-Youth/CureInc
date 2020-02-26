@@ -104,5 +104,28 @@ bool government::_move()
 	Area._move();
 	Area.showOverallStatus();
 	//TODO: Complete codes for gameplay
+a:	cout << "Do your choice: H for build Hospital\n\
+R for keep citizens at home\n E for save and exit.\n";
+	char input;
+	cin >> input;
+	switch (input) {
+	case 'H':
+	case 'h':
+		area::action b = area::action::buildHospital;
+		Area.addAction(b, 7);
+		break;
+	case 'R':
+	case 'r':
+		area::action r = area::action::reduceMovement;
+		Area.addAction(r, 3);
+		break;
+	case 'E':
+	case 'e':
+		return false;
+		break;
+	default:
+		cout << "Not an option!\n";
+		goto a;
+	}
 	return true;
 }
