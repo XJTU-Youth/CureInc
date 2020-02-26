@@ -95,7 +95,7 @@ void government::go_pe_give(int& gi_rate)//���������ⲹ��
 		static std::default_random_engine e(time(nullptr));
 		static std::uniform_real_distribution<double> u(0, 1);
 		if (u(e) > 0.9)
-			ex_ge /= 1.5, day_in /= 1.2, gi_rate += 0;
+			ex_ge =ex_ge*2/3, day_in=day_in*5/6, gi_rate += 0;
 	}
 }
 
