@@ -16,7 +16,7 @@ public:
 	inline string& get_name_save() { return name_save; }
 	void co_bu();
 
-	void go_pe_give(int& gi_rate);//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
+	void go_pe_give(bool from);//捐款，政府额外补贴部分,girate表示捐款率，每捐一次都会降低
 
 	inline government(unsigned int _population=0, unsigned int _init_affected=0, unsigned int init_hosCap=0) { Area.reset(_population, _init_affected, init_hosCap); }
 	//    string get_name_save();
@@ -32,6 +32,6 @@ private:
 	const unsigned long long money_de=0;
 	const long long day_in_de=0;
 	const int gi_rate_de=0;
-	string name_save;
+
 
 };

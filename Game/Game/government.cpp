@@ -1,5 +1,6 @@
 #include "government.h"
 const string gov = "gov.sav";
+string name_save;
 void government::co_bu()
 {
 	area::action buildHosp = area::action::buildHospital;
@@ -85,17 +86,16 @@ void government::ch_day()
 	money += day_in;
 	money -= Area.getTodaySpend();
 }
-void government::go_pe_give(int& gi_rate)//���������ⲹ������,girate��ʾ����ʣ�ÿ��һ�ζ��ή��
+void government::go_pe_give(bool from)//���������ⲹ������,girate��ʾ����ʣ�ÿ��һ�ζ��ή��
 {
 	int ex_ge = 0;//extra get
-	bool from;
 	//���������ģ�����=1������=0
 	if (from == false)
 	{
 		static std::default_random_engine e(time(nullptr));
 		static std::uniform_real_distribution<double> u(0, 1);
 		if (u(e) > 0.9)
-			ex_ge /= 1.5, day_in /= 1.2, gi_rate += 0;
+			ex_ge =ex_ge*2/3, day_in=day_in*5/6, gi_rate += 0;
 	}
 }
 
