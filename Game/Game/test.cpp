@@ -11,6 +11,6 @@ int main()
 	return 0;
 	*/
 	government Gov(1000000, 20, 1000);
-	Gov.new_game();
+	Gov.menu();
 	return 0;
 }
