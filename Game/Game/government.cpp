@@ -148,6 +148,11 @@ bool government::_move()
 	Area._move();
 	Area.showOverallStatus();
 	//TODO: Complete codes for gameplay
+	char ch;
+	cout << "Do you wanna make choice?<Y/N>\n";
+	cin >> ch;
+	if (ch != 'y' && ch != 'Y')
+		return true;
 a:	cout << "Do your choice: H for build Hospital\n\
 R for keep citizens at home\n E for save and exit.\n";
 	char input;
