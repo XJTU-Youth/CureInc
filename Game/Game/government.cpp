@@ -10,6 +10,7 @@ const string logo=
 "               .B@r   ..  .BB   SBk   2@,     SB             @B   :BL    @5   B@:  .\n"
 "                 vMB@B@;   :M@BNvN7   LM.      rO@B@0.       GZ   :Bi    @L    L@B@O.\n";
 void  government::movexy(short x, short y)
+void inline movexy(short x, short y)
 {
     COORD position={x, y};
     HANDLE hOut=GetStdHandle(STD_OUTPUT_HANDLE);
