@@ -38,7 +38,7 @@ void government::read_save()
 	errno_t err = fopen_s(&dat, (name_save + gov).c_str(), "r");
 	if (err)
 	{
-		MessageBox(NULL,"we can't find this save","pay a little attention",MB_ICONWARNING|MB_OK);
+		MessageBox(NULL,L"we can't find this save",L"pay a little attention",MB_ICONWARNING|MB_OK);
 		menu();
 	}
 	fread(&money, sizeof(unsigned long long), 1, dat);
