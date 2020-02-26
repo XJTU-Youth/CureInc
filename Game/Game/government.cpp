@@ -90,7 +90,7 @@ void government::go_pe_give(int& gi_rate)//���������ⲹ��
 	int ex_ge = 0;//extra get
 	bool from;
 	//���������ģ�����=1������=0
-	if (from = false)
+	if (from == false)
 	{
 		static std::default_random_engine e(time(nullptr));
 		static std::uniform_real_distribution<double> u(0, 1);
