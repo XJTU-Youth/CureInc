@@ -1,6 +1,6 @@
 #include "government.h"
 const string gov = "gov.sav";
-const string aoligei=
+const string logo=
 "                 :N@B@@u                                     EP\n"
 "                @Bu.  i:                                     B@\n"
 "               EB         :BJ   .Mu   LFrXB1   7@B@G,        @M   :OuU@B@J     JB@BM,\n"
@@ -19,7 +19,7 @@ void government::Start()
 {
     movexy(3,1);
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    cout<<aoligei;
+    cout<<logo;
     Sleep(3000);
     system("cls");
     movexy(10,5);
