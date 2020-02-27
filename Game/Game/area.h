@@ -10,25 +10,25 @@
 //#include "yaml-cpp/yaml.h"
 
 const std::string HubeiMap = R"(
-              ,,,---                                                      
-       ,,,'```      \,,,_                                                 
-     |                   .                                                
-      `.                   |  ,,                                          
-         ,                ,       \  _. ____..                            
-             |         |               |      |                           
-         /          '                 |       \ ,......../``  _|          
-          ',         |                ,           \      |     | ,- ,     
+              ,,,---
+       ,,,'```      \,,,_
+     |                   .
+      `.                   |  ,,
+         ,                ,       \  _. ____..
+             |         |               |      |
+         /          '                 |       \ ,......../``  _|
+          ',         |                ,           \      |     | ,- ,
              ,'        `' .   ,' .`        '.   ,.-        ,         \-- ,
-               '.         `                    `          /|          -'` 
-                  \     ,-  |                  /    ,.'`   ',       |     
-                   ' |       |   .........,,-`      |        `        /    
-        /   \ '''    /        \/-                 /    | '_.         \    
-       /           /             ` \            |      |  |.            | 
-  .--          /     .....--.     ,' |     _.  -    ``,'/`        |\     \ 
+               '.         `                    `          /|          -'`
+                  \     ,-  |                  /    ,.'`   ',       |
+                   ' |       |   .........,,-`      |        `        /
+        /   \ '''    /        \/-                 /    | '_.         \
+       /           /             ` \            |      |  |.            |
+  .--          /     .....--.     ,' |     _.  -    ``,'/`        |\     \
  |                | /        `` `     \ /   \   /\        `,     | `'... `
-   |         ,..`  '             \._,`       ``   |           `',         
-  '        /                                     |     ,--'''             
-    `` \  |                                      \   /                    
+   |         ,..`  '             \._,`       ``   |           `',
+  '        /                                     |     ,--'''
+    `` \  |                                      \   /
          `                                        ```                     )";
 
 
@@ -100,6 +100,7 @@ public:
 		int day1;
 	} date;
 	void _move();
+	inline unsigned void outputdate(){std::cout<<_date.year<<"."<<_date.month<<"."<<_date.day1<<"\n";}
 	inline unsigned int& getTodayDead() { return todayDied; }
 	inline unsigned int& getHosPat() { return hospital.hospat; }
 	inline unsigned int& getAffected() { return affected; }

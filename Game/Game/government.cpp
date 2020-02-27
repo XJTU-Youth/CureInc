@@ -53,6 +53,7 @@ void government::co_bu()
 //string government::get_name_save(){return name_save;}
 void government::new_game()
 {
+    system("title Cure Inc.  1.0")
 	system("cls");
 	std::cout << "Please input the name of the save without space\n";
 a1: std::cin >> name_save;
@@ -146,6 +147,7 @@ void government::go_pe_give(bool from)//���������ⲹ���
 bool government::_move()
 {
 	Area._move();
+	Area.outputdate();
 	Area.showOverallStatus();
 	//TODO: Complete codes for gameplay
 	char ch;

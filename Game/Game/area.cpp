@@ -37,6 +37,15 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
+	if(day>233)
+    {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    std::cout<<"Because of the illness,the Olympic is put off.You lose the game.\nPress any button to return to the menu";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+    while(!_kbhit);
+    char s=getch();
+    menu();
+    }
 	affected = spread(affected - hospital.hospat, affeRate);
 	processAction();
 	hospital.hospat = 0.5 * affected;
@@ -49,7 +58,7 @@ bool area::saveToYaml(std::string savName)
 	std::ofstream fout(savName);
 	if (fout.is_open())
 	{
-		
+
 		fout << affeRate << std::endl
 			<< population << std::endl
 			<< affected << std::endl
@@ -60,7 +69,7 @@ bool area::saveToYaml(std::string savName)
 			<< hospital.hostot << std::endl
 			<< hospital.hospat << std::endl
 			<< day << std::endl;
-		
+
 		fout.close();
 		return true;
 	}
