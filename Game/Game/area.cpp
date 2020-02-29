@@ -37,10 +37,18 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
+	if(dead>500000)
+    {
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+    std::cout<<"Due to your improper control,the sick cause big harm to the city.\nYou lose the game.\nPress any button to return to the menu";
+    while(!_kbhit);
+    char s=getch();
+    menu();
+    }
 	if(day>233)
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    std::cout<<"Because of the illness,the Olympic is put off.You lose the game.\nPress any button to return to the menu";
+    std::cout<<"Because of the illness,the Olympic is put off\nAnd the economic of China is affected.You lose the game.\nPress any button to return to the menu";
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     while(!_kbhit);
     char s=getch();

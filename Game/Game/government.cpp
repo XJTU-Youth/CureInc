@@ -141,7 +141,6 @@ void government::go_pe_give(bool from)//���������ⲹ���
 		static std::uniform_real_distribution<double> u(0, 1);
 		if (u(e) > 0.9)
 			ex_ge =ex_ge*2/3, day_in=day_in*5/6, gi_rate += 0;
-	}
 }
 
 bool government::_move()
