@@ -1,5 +1,5 @@
 #include "area.h"
-
+const int lev_low[20]={1,1,10,20,50,100,200,400,800,1400,2000,3000,4000};
 void area::processAction()
 {
 	for (auto action_ : actions)
@@ -14,7 +14,19 @@ void area::processAction()
 				hospital.hostot += 100;
 				break;
 			case reduceMovement:
+			    if(affected>=lev_low[lev_lim]||dead>=lev_low[lev_lim]/10)
+                {
+                /**/
+                /**/
 				affeRate *= 0.9;
+				lev_lim++;
+				}
+				else
+                {
+                    affeRate*=0.96;
+                    std::cout<<"Due to the excessive treatment,you set off a panic in the crowd,which makes the number of against people";
+                    num_aga+=20000;
+                }
 				break;
 				//expandable
 			}
@@ -40,20 +52,23 @@ void area::_move()
 	if(dead>500000)
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    std::cout<<"Due to your improper control,the sick cause big harm to the city.\nYou lose the game.\nPress any button to return to the menu";
+    std::cout<<"Due to your improper control,the sick cause big harm to the city.\nYou lose the game.\nDon't lose your determination!\nPress any button to return to the menu";
     while(!_kbhit);
     char s=getch();
     menu();
     }
-	if(day>233)
+    /**/
+    /**/
+	if(day>233&&)/**/
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
-    std::cout<<"Because of the illness,the Olympic is put off\nAnd the economic of China is affected.You lose the game.\nPress any button to return to the menu";
+    std::cout<<"Because of the illness,the Olympic is put off\nAnd the economic of China is affected.You lose the game.\n Press any button to return to the menu";
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
     while(!_kbhit);
     char s=getch();
     menu();
     }
+
 	affected = spread(affected - hospital.hospat, affeRate);
 	processAction();
 	hospital.hospat = 0.5 * affected;

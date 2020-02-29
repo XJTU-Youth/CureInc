@@ -106,6 +106,9 @@ void government::menu()
 {
 	system("cls");
 	printf("Welcome to the game CureInc\nchoose a/b/c to continue\na:start a new game\nb:load game\nc:exit\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+	printf("Always keep your determination to beat the illness\n");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
 	char s;
 a2:cin >> s;
 	switch (s)

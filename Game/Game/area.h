@@ -73,12 +73,13 @@ public:
 
 	int day;
 
-	inline unsigned long long addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); return _action == buildHospital ? 2000000 : 0; }
+	inline unsigned long long addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); return _action == buildHospital ? 3000000 : 0; }
 	inline void showAction() { for (auto& action_ : actions)std::cout << "Action:" << int(action_.first) << " Time:" << action_.second << " days.\n"; }
 	inline void showOverallStatus() {
 		system("cls");
 		std::cout << HubeiMap << std::endl << "Total Population: " << population << "\nTotal nCov affected: " << affected << "\nTotal hospital capacity: "\
 			<< hospital.hostot << "\nAvaliable hospital room: " << hospital.hostot - hospital.hospat << "\nDead patients count: " << dead << std::endl;
+			outputdate();
 	}
 	void mv_time();
 	const int day_of_month[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
@@ -93,6 +94,8 @@ public:
 		population = _population;
 		affected = _init_affected;
 	}
+	int num_aga=0;
+	int lev_lim=0;
 	struct _date
 	{
 		int year;
