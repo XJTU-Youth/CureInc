@@ -73,7 +73,7 @@ public:
 
 	int day;
 
-	inline unsigned long long addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); return _action == buildHospital ? 3000000 : 0; }
+	inline void addAction(action _action, int16_t time) { actions.push_back(std::pair<action, int16_t>(_action, time)); /*return _action == buildHospital ? 3000000 : 0; */}
 	inline void showAction() { for (auto& action_ : actions)std::cout << "Action:" << int(action_.first) << " Time:" << action_.second << " days.\n"; }
 	inline void showOverallStatus() {
 		system("cls");

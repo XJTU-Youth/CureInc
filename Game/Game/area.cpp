@@ -38,8 +38,8 @@ void area::processAction()
 				break;
 				//expandable
 			case reduceLimit:
-			    if
-
+			    affeRate/=1.1;
+                lev_lim--;
             break;
 			}
 
@@ -71,7 +71,7 @@ void area::_move()
     }
     /**/
     /**/
-	if(day>233&&)/**/
+/*	if(day>233&&)/
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
     std::cout<<"Because of the illness,the Olympic is put off\nAnd the economic of China is affected.You lose the game.\n Press any button to return to the menu";
@@ -79,7 +79,7 @@ void area::_move()
     while(!_kbhit);
     char s=getch();
     menu();
-    }
+    }*/
 
 	affected = spread(affected - hospital.hospat, affeRate);
 	processAction();
@@ -104,6 +104,7 @@ bool area::saveToYaml(std::string savName)
 			<< hospital.hostot << std::endl
 			<< hospital.hospat << std::endl
 			<< day << std::endl
+			<<num_aga<<std::endl
 			<<lev_lim<<std::endl;
 
 		fout.close();
@@ -120,7 +121,7 @@ bool area::loadFromYaml(std::string savName)
 		fin >> affeRate >> population >> affected
 			>> dead >> healthy >> cured >> dayliSpend
 			>> hospital.hostot >> hospital.hospat
-			>> day>>lev_lim;
+			>> day>>num_aga>>lev_lim;
 		return true;
 	}
 	return false;

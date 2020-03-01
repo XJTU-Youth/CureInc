@@ -12,10 +12,10 @@ private:
 	area Area;
 	unsigned long long money;
 	long long day_in;
-	int gi_rate;//捐款相关率
-	const unsigned long long money_de = 50000000;
+//	int gi_rate;//捐款相关率
+	const unsigned long long money_de = 40000000;
 	const long long day_in_de = 1000000;
-	const int gi_rate_de = 0;
+//	const int gi_rate_de = 0;
 	string name_save;
 
 
