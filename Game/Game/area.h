@@ -66,7 +66,7 @@ private:
 
 
 public:
-	enum action { buildHospital, reduceMovement };
+	enum action { buildHospital, reduceMovement,reduceLimit };
 private:
 	std::vector<std::pair<action, int16_t>> actions;//消息队列，存放pair，pair内部是操作名称和还需时间。
 public:

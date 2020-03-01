@@ -1,5 +1,5 @@
 #include "area.h"
-const int lev_low[20]={1,1,10,20,50,100,200,400,800,1400,2000,3000,4000};
+const int lev_low[20]={1,1,10,20,50,100,200,400,800,1400,2000,3000,4000,5000,10000};
 void area::processAction()
 {
 	for (auto action_ : actions)
@@ -14,21 +14,33 @@ void area::processAction()
 				hospital.hostot += 100;
 				break;
 			case reduceMovement:
+			    if(lev_lim>13)
+                {
+                    std::cout<<"The level of reduce movement has been the highest\n";
+                }
 			    if(affected>=lev_low[lev_lim]||dead>=lev_low[lev_lim]/10)
                 {
                 /**/
                 /**/
-				affeRate *= 0.9;
+                if(affect>=lev_low[lev_lim]+1)
+				affeRate *= 0.87,num_aga-=1000;
+				else
+                affeRate*=0.9,num_aga+=1000;
 				lev_lim++;
+
 				}
 				else
                 {
-                    affeRate*=0.96;
-                    std::cout<<"Due to the excessive treatment,you set off a panic in the crowd,which makes the number of against people";
-                    num_aga+=20000;
+                    affeRate*=0.95;
+                    std::cout<<"Due to the excessive treatment,you set off a panic in the crowd,which makes the number of against people increase";
+                    num_aga+=5000;
                 }
 				break;
 				//expandable
+			case reduceLimit:
+			    if
+
+            break;
 			}
 
 		}
@@ -91,7 +103,8 @@ bool area::saveToYaml(std::string savName)
 			<< dayliSpend << std::endl
 			<< hospital.hostot << std::endl
 			<< hospital.hospat << std::endl
-			<< day << std::endl;
+			<< day << std::endl
+			<<lev_lim<<std::endl;
 
 		fout.close();
 		return true;
@@ -107,7 +120,7 @@ bool area::loadFromYaml(std::string savName)
 		fin >> affeRate >> population >> affected
 			>> dead >> healthy >> cured >> dayliSpend
 			>> hospital.hostot >> hospital.hospat
-			>> day;
+			>> day>>lev_lim;
 		return true;
 	}
 	return false;
