@@ -61,7 +61,7 @@ void area::mv_time()
 void area::_move()
 {
 	mv_time();
-	if(dead>500000)
+	if(affected>1000000)
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
     std::cout<<"Due to your improper control,the sick cause big harm to the city.\nYou lose the game.\nDon't lose your determination!\nPress any button to return to the menu";
@@ -71,6 +71,13 @@ void area::_move()
     }
     /**/
     /**/
+    if(money<10000)
+    {
+        std::cout<<"you have no money now.you lose\n the part of giving away money will join later\nPress any button to return to the menu"
+        while(!_kbhit);
+        char s=getch();
+        menu();
+    }
 /*	if(day>233&&)/
     {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
