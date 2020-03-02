@@ -10,7 +10,7 @@ class government
 
 private:
 	area Area;
-	unsigned long long money;
+    long long money;
 	long long day_in;
 //	int gi_rate;//捐款相关率
 	const unsigned long long money_de = 40000000;
