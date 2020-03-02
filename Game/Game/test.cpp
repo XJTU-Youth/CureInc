@@ -10,7 +10,7 @@ int main()
 	Area.saveToYaml("test2.yaml");
 	return 0;
 	*/
-	government Gov(1000000, 20, 1000);
+	government Gov(50000000, 20, 1000);
 	Gov.Start();
 	while(Gov._move());
 	Gov.save_exit();
