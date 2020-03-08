@@ -48,6 +48,20 @@ int kbhit()
 	return bytesWaiting;
 }
 */
+
+void dbg1() { printf_s("debug 1 called\n"); }
+void dbg2() { printf_s("debug 2 called\n"); }
+void dbg3() { printf_s("debug 3 called\n"); }
+void dbg4() { printf_s("debug 4 called\n"); }
+void dbg5() { printf_s("debug 5 called\n"); }
+void dbg6() { printf_s("debug 6 called\n"); }
+void dbg7() { printf_s("debug 7 called\n"); }
+void dbg8() { printf_s("debug 8 called\n"); }
+void dbgq() { printf_s("debug q called\n"); }
+void dbgw() { printf_s("debug w called\n"); }
+void dbge() { printf_s("debug e called\n"); }
+void dbgr() { printf_s("debug r called\n"); }
+
 const char Aoligei[23333] =
 "      1LvL2FSSXL:\n"
 "        :@B@:,,,i1B@7      vB@:\n"
@@ -79,7 +93,6 @@ struct person {
 	short curing;//in hos
 	short cured;
 	short dead;
-	//short ihidt;
 	short iaff_r; //affeRate in the group,related to above
 	bool affe;//no affected
 	bool a_affe;//all affected
@@ -114,7 +127,7 @@ int main()
 	lao8hanbao
 		bool dui = true;
 	//Sleep(3000);
-	system("cls");
+//	system("cls");
 	//movexy(10,5);
 	//SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
 	printf("\n\n\n\n          The simulation of virus transmission,maybe different to the real situation");
@@ -127,7 +140,7 @@ int main()
 	while (!kbhit());
 	rub = getch();
 
-	system("cls");
+//	system("cls");
 	printf("set the data\n");
 a1:
 	printf("input the affect rate(30<=n<=70):");
@@ -164,7 +177,7 @@ a4:
 			printf("Gov:The hospital of Huoshenshan has been built\n");
 			printf("The number of beds available in the hospital has increased\n");
 			lao8hanbao
-				hosCap += rand() % 500 + 1400;
+				hosCap += 1400;
 
 			cure_abi += 5;
 		}
@@ -193,9 +206,26 @@ a4:
 		//swap end
 		for (int i = 1; i <= 1600; i++)
 			for (int j = 1; j <= 1600; j++) {
-				if (q.affe == false) continue;
+				//** who don't go to the hospital
+				if (day > 10) {
+					int sb = q.affect - q.dead - q.curing - q.cured;
+					while (sb--) {
+						int big_rand = rand() % 2800 + 1;
+						if (big_rand > 1000 && big_rand <= 1000 + die_rate / 2 * 3) {
+							q.dead++;
+							deadcount++;
+						}
+					}
+				}
+				int zdy;
+				if (q.affe == false) { 
+					continue;
+					dbg1();
+				}
+
 				if (q.a_affe == false) {
-					int zdy = 150;
+					dbg2();
+					zdy = day > 10 ? 480 : 240;
 					int kdzdy = (q.affect + 3) / 4;
 					while (kdzdy--) {
 						if (rand() % zdy > affe_rate) continue;
@@ -210,51 +240,84 @@ a4:
 				}
 				// spreading
 
-
-				int zdy = 160;
+				dbg3();
+				zdy = day > 10 ? 520 : 260;
 				int kdzdy = (q.a_affe - q.dead - q.cured + 4) / 3;//ke dei zhu dian yi le
 				if (i - 1 != 0 && hubei[i - 1][j].a_affe == false) {
 					int k = kdzdy;
+					dbg5();
 					while (k--) {
-						if (rand() % zdy > affe_rate) continue;
-						if (hubei[i - 1][j].affe == false) hubei[i - 1][j].affe = true;
-						hubei[i - 1][j].affect++;
+						if (rand() % zdy > affe_rate) {
+							printf_s("k is %d\n", k);
+							dbgq();
+							continue;
+						}
+						if (hubei[i - 1][j].affe == false) {
+							dbgw(); hubei[i - 1][j].affe = true;
+						}
+						hubei[i - 1][j].affect++; dbge();
 						affecount++;
 					}
+					dbg5();
 				}
 				if (i != 1600 && hubei[i + 1][j].a_affe == false) {
 					int k = kdzdy;
+					dbg6();
 					while (k--) {
-						if (rand() % zdy > affe_rate) continue;
-						if (hubei[i + 1][j].affe == false) hubei[i + 1][j].affe = true;
-						hubei[i + 1][j].affect++;
+						if (rand() % zdy > affe_rate) {
+							printf_s("k is %d\n", k);
+							dbgq();
+							continue;
+						}
+						if (hubei[i + 1][j].affe == false) {
+							dbgw(); hubei[i + 1][j].affe = true;
+						}
+						hubei[i + 1][j].affect++; dbge();
 						affecount++;
 					}
+					dbg6();
 				}
 				if (j - 1 != 0 && hubei[i][j - 1].a_affe == false) {
 					int k = kdzdy;
+					dbg7();
 					while (k--) {
-						if (rand() % zdy > affe_rate) continue;
-						if (hubei[i][j - 1].affe == false) hubei[i][j - 1].affe = true;
-						hubei[i][j - 1].affect++;
+						if (rand() % zdy > affe_rate) {
+							printf_s("k is %d\n", k);
+							dbgq();
+							continue;
+						}
+						if (hubei[i][j - 1].affe == false) {
+							dbgw(); hubei[i][j - 1].affe = true;
+						}
+						hubei[i][j - 1].affect++; dbge();
 						affecount++;
 					}
+					dbg7();
 				}
 				if (j != 1600 && hubei[i][j + 1].a_affe == false) {
 					int k = kdzdy;
+					dbg8();
 					while (k--) {
-						if (rand() % zdy > affe_rate) continue;
-						if (hubei[i][j + 1].affe == false) hubei[i][j + 1].affe = true;
-						hubei[i][j - 1].affect++;
+						if (rand() % zdy > affe_rate) {
+							printf_s("k is %d\n", k);
+							dbgq();
+							continue;
+						}
+						if (hubei[i][j + 1].affe == false) {
+							dbgw(); hubei[i][j + 1].affe = true;
+						}
+						hubei[i][j + 1].affect++; dbge();
 						affecount++;
 					}
+					dbg8();
 				}
+				dbg4();
 				//  go to the hospital!!!
 				if (day < 10) continue;
-				int lixi = q.affect - q.cured - q.dead;
+				int lixi = q.affect - q.curing - q.cured - q.dead;
 				while (lixi--) {
 					if (hosCap > inhos) {
-						int lzj = rand() % 3;
+						int lzj = rand() % 9;
 						if (lzj != 1) {
 							q.curing++;
 							inhos++;
@@ -280,10 +343,11 @@ a4:
 				}
 			}
 		//print  situation
-		printf("The day:%d\nDeath count:%d\nCured count:%d\nThe number in the hospital:%d\nTotal affected number:%d\n",
+
+			printf("The day:%d\nDeath count:%d\nCured count:%d\nThe number in the hospital:%d\nTotal affected number:%d\n",
 			day, deadcount, curcount, inhos, affecount);
-		lao8hanbao
-			system("cls");
+//		lao8hanbao
+//			system("cls");
 		//the chance to change the data
 		if (day == 30 || day == 80 || day == 150 || day == 250) {
 			printf("Now you have the chance to build the hospital\nyou can add the number of hospital's beds\ninput a number to add(0<=n<=15000)");
@@ -295,7 +359,7 @@ a4:
 				goto kehaixing;
 			}
 			hosCap += ww;
-			system("cls");
+//			system("cls");
 		}
 	}
 }
