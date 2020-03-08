@@ -159,22 +159,29 @@ bool government::_move()
 	if (ch != 'y' && ch != 'Y')
 		return true;
 a:	cout << "Do your choice: H for build Hospital\n\
-R for keep citizens at home\n E for save and exit.\n";
+R for keep citizens at home\n L for reduce the level of limit\nE for save and exit.\n";
 	char input;
 	cin >> input;
 		area::action b = area::action::buildHospital;
 	area::action r = area::action::reduceMovement;
+	area::action lixi=area::action::reduceLimit;
 	switch (input) {
 	case 'H':
 	case 'h':
 
 		Area.addAction(b, 7);
+		money-=3000000;
 		break;
 	case 'R':
 	case 'r':
 
 		Area.addAction(r, 3);
+		day_in-=40000;
 		break;
+    case 'L':
+    case 'l':
+        Area.addAction(lixi,3);
+        day_in+=35000;
 	case 'E':
 	case 'e':
 		return false;
@@ -183,5 +190,6 @@ R for keep citizens at home\n E for save and exit.\n";
 		cout << "Not an option!\n";
 		goto a;
 	}
+	if(money<5000000)
 	return true;
 }
