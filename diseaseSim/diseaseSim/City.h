@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include <vector>
 #include <random>
 #include <conio.h>
@@ -72,4 +72,4 @@ public:
 		int day1;
 	} date;
 };
-
+*/

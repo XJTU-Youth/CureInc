@@ -1,4 +1,4 @@
-#include "City.h"
+/*#include "City.h"
 
 using namespace std;
 
@@ -135,3 +135,4 @@ void City::Person::_move(int day, int& citizens, int& affected, int& hiden, int&
 			isCured = true, isHiden = isAffected = isInHosp = false;
 	}
 }
+*/

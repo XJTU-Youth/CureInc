@@ -1,4 +1,4 @@
-#include "City.h"
+/*#include "City.h"
 #include <ctime>
 using namespace std;
 
@@ -10,12 +10,12 @@ using namespace std;
 	return 0;
 }*/
 
-double random_unint(unsigned int min, unsigned int max, unsigned int seed = 0)
+/*double random_unint(unsigned int min, unsigned int max, unsigned int seed = 0)
 {
 	static std::default_random_engine e(seed);
 	static std::uniform_real_distribution<double> u(min, max);
 	return u(e);
-}
+}*/
 
 /*int main()
 {

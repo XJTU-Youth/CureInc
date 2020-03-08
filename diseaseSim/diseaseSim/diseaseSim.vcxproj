@@ -140,6 +140,7 @@
   <ItemGroup>
     <ClCompile Include="City.cpp" />
     <ClCompile Include="test.cpp" />
+    <ClCompile Include="virus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="City.h" />
